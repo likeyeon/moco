@@ -32,9 +32,11 @@ if env_path.exists():
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-ALLOWED_HOSTS = []
-
+DEBUG = False
+ALLOWED_HOSTS = [
+    '.ap-northeast-2.compute.amazonaws.com',
+    '.moco-coding.com',
+]
 
 # Application definition
 
@@ -148,9 +150,10 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static"),
+# ]
 
 
 
@@ -212,3 +215,6 @@ SOCIALACCOUNT_PROVIDERS = {
         },
     }
 }
+
+# summernote 허용
+X_FRAME_OPTIONS = 'SAMEORIGIN'
